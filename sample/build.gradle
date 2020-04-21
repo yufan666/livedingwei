@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "27.0.2"
+    defaultConfig {
+        applicationId "com.xdandroid.sample"
+        minSdkVersion 14
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+    sourceSets {
+        main() {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    api 'io.reactivex.rxjava2:rxjava:2.+'
+    api project(':hellodaemon')
+    compile files('libs/baidumapapi_base_v4_3_1.jar')
+    compile files('libs/baidumapapi_map_v4_3_1.jar')
+    compile files('libs/baidumapapi_util_v4_3_1.jar')
+    compile files('libs/locSDK_6.13.jar')
+    compile files('libs/volley.jar')
+    compile 'com.zhy:okhttputils:2.6.2'
+}
